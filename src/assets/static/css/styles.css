@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    /*background-color: #ccc;*/
+    padding-top: 20px;
+    border-top: 5px solid #ee2828;
+}
+
+.content {
+    background-color: #f2d5b9
+}
