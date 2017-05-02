@@ -7,10 +7,12 @@ import { RouterModule }   from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 
 
 const routes = [
-  { path: '', component: HomeComponent }
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent }
   //{ path: '**', redirectTo: 'user', pathMatch: 'full' }
 ];
 
@@ -18,7 +20,8 @@ const routes = [
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
