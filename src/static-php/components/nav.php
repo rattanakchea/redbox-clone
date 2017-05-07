@@ -16,7 +16,7 @@
             <a class="nav-link" href="#">Horrow</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['admin']">Admin</a>
+            <a class="nav-link" [routerLink]="['about']">Admin</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Cart</a>
