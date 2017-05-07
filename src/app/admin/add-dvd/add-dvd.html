@@ -1,12 +1,12 @@
 <div class="container">
   <h3>Dvd Add Form</h3>
-  <form class="form-inline">
+  <form class="form-inline" (ngSubmit)="addDvd()">
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Title">
+      <input type="text" [(ngModel)]="dvd.title" name="title" class="form-control" placeholder="Title">
       <button class="btn btn-default">Search</button>
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Image">
+      <input type="text" [(ngModel)]="dvd.image" name="image" class="form-control" placeholder="Image">
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Add to inventory</button>

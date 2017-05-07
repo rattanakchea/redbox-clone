@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
 import { DvdService } from '../services/dvd.service';
-
 import { Dvd } from '../data/models/dvd';
 
 @Component({
@@ -14,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private dvdService: DvdService) {
 
-    this.DvdCollection = dvdService.data;
+    this.DvdCollection = this.dvdService.data;
 
   }
 
