@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DvdService } from '../services/dvd.service';
-import { Dvd } from '../data/models/dvd';
+import { Dvd } from '../models/dvd';
 
 @Component({
   selector: 'home',

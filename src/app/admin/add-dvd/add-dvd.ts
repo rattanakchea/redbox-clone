@@ -1,7 +1,7 @@
 // dvd add form
 import { Component, OnInit } from '@angular/core';
 import { DvdService } from '../../services/dvd.service';
-import { Dvd } from '../../data/models/dvd';
+import { Dvd } from '../../models/dvd';
 
 @Component({
   selector: 'add-dvd',
@@ -12,16 +12,15 @@ export class AddDvdComponent {
   dvd: Dvd;
 
   constructor(private dvdService: DvdService) {
-    
     this.dvd = new Dvd({});
   }
 
   addDvd() {
-    console.log('add dvd');
+    var newDvd = new Dvd(this.dvd);
+    console.log('new dvd:', newDvd);
 
-    console.log(this.dvd);
-
-    this.dvdService.add(this.dvd);
+    this.dvdService.add(newDvd);
+    this.dvd = new Dvd({});
   }
 
 }

@@ -5,6 +5,7 @@
       <tr>
         <th>#</th>
         <th>Title</th>
+        <th>Category <a href="javascript:void(0)" (click)="filterCategory()">All</a></th>
         <th>Qty</th>
         <th>Image</th>
         <th>Action</th>
@@ -14,10 +15,40 @@
       <tr *ngFor="let item of DvdCollection">
         <th>{{ item.id }}</th>
         <td>{{ item.title }}</td>
-        <td>{{ item.quantity }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let category of item.category" (click)="filterCategory(category)">
+              <a href="javascript:void(0)">{{ category }}</a>
+            </li>
+          </ul>
+
+        </td>
+        <td>{{ item.qty }}</td>
         <td><img class="card-img-top" src="{{ item.image }}" style="max-width:100px"></td>
-        <td><a href="#" class="btn btn-warning">Remove</a></td>
+        <td><a (click)="remove(item.id)" class="btn btn-warning">Remove</a></td>
+        <td><a (click)="edit(item)" class="btn btn-primary">Edit</a></td>
       </tr>
     </tbody>
   </table>
+
+  <div *ngIf="selectedDvd">
+    <h3>Dvd Edit Form</h3>
+    <form class="form-inline" #f="ngForm" (ngSubmit)="saveEdit(f)">
+      <input type="text" [ngModel]="selectedDvd.id" name="id" class="form-control" class="hidden">
+      <div class="form-group">
+        <input type="text" [ngModel]="selectedDvd.title" name="title" class="form-control" placeholder="Title">
+        <button class="btn btn-default">Search</button>
+      </div>
+      <div class="form-group">
+        <input type="text" [ngModel]="selectedDvd.image" name="image" class="form-control" placeholder="Image">
+      </div>
+      <div class="form-group">
+        {{ category | json }}
+        <input type="text" [ngModel]="selectedDvd.category" name="category" class="form-control" placeholder="Comma separate">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
 </div>
