@@ -6,6 +6,10 @@
         <img class="card-img-top" src="{{dvd.image}}" style="max-width:100%">
         <div class="card-block">
           <h4 class="card-title">{{dvd.title}}</h4>
+          <p>
+            <label>Category: </label>
+            <span *ngFor="let cat of dvd.category" style="border: 1px solid #ccc; border-radius: 5px; margin: 5px">{{cat}} </span>
+          </p>
         </div>
       </div>
     </div>

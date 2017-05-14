@@ -13,19 +13,19 @@ export const sampleData = [
         id: 0,
         title: "La La Land",
         image: "http://images.redbox.com/Images/EPC/boxartlarge/200126.jpg",
-        category: 'drama, action'
+        category: 'drama,action'
     },
     {
         id: 1,
         title: "Rings",
         image: "http://images.redbox.com/Images/EPC/boxartlarge/8148.jpg",
-        category: 'action, suspense'
+        category: 'action,suspense'
     },
     {
         id: 2,
         title: "Split",
         image: "http://images.redbox.com/Images/EPC/boxartlarge/200158.jpg",
-        category: 'crime, romance, comedey'
+        category: 'crime,romance,comedy'
     }
 
 ];

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -10,15 +10,23 @@ import { Dvd, sampleData } from '../models/dvd';
 import * as _ from "lodash";
 @Injectable()
 export class DvdService {
-    data: Dvd[];
+    @Output() emitter = new EventEmitter();
 
+    data: Dvd[];
+    copyData: Dvd[];
     selectedDvd: Dvd; //save the currently selected dvd
 
     constructor(private http: Http) {
         this.data = [];
+        this.copyData = [];
         sampleData.forEach(data => {
             this.data.push(new Dvd(data));
+            this.copyData.push(new Dvd(data));
         })
+    }
+
+    getCopyData() {
+        return this.copyData;
     }
 
     add (Dvd: Dvd) {
@@ -26,11 +34,11 @@ export class DvdService {
     }
 
     update(updatedDvd) {
-
         console.log('dvd service', updatedDvd);
         var match = _.find(this.data, (dvd) => {
             return dvd.id === updatedDvd.id;
         })
+
         if (match) {
             console.log(match);
             match.title = updatedDvd.title;
@@ -50,9 +58,25 @@ export class DvdService {
     filterByCategory( category: string) {
         //return new array of filtered data by category
         return _.filter(this.data, (dvd) => {
-            console.log('each dvd', dvd);
+            //console.log('each dvd', dvd);
             return dvd.category.indexOf(category) !== -1; // found
         });
+    }
+
+    // mutate data, not good
+    filterByCategory2( category: string) {
+        if (!category) {
+           this.emitter.emit(this.data);
+           return;
+        }
+        console.log('filter by: ', category);
+        //return new array of filtered data by category
+        this.copyData = _.filter(this.data, (dvd) => {
+            console.log('each dvd', dvd.category, dvd.category.indexOf(category));
+            return (dvd.category.indexOf(category) !== -1 )// found
+        
+        });
+        this.emitter.emit(this.copyData);
     }
 }
 
