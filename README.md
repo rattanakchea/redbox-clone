@@ -1,6 +1,18 @@
-# Redbox
+# Redbox Clone
+This project was built to simulated Redbox mobile.
+- Angular 4
+- typescript
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+
+## deploy to gh page for demo
+`ng build --prod --base-href "https://rattanakchea.github.io/redbox-clone/"`
+
+For now, remove reference in to style.css in `dist` folder. And copy all assets into `dist/src` folder, after creating
+`src` if not exists. I will integrate this into build tool.
+
+`ngh` or `angular-cli-ghpages`
+prerequisites: installl angular-cli-ghpages and use ng-cli to generate the app
 
 ## Development server
 
