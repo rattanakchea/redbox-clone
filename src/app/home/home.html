@@ -1,14 +1,15 @@
 <div class="content">
   <div class="container">
     <div class="card-deck">
-      <p>{{ DvdCollection | json }}</p>
-      <div class="card" *ngFor="let dvd of DvdCollection">
+      <!--<p>{{ DvdCollection | json }}</p>-->
+      <div class="card" *ngFor="let dvd of DvdCollection" style="max-width:33%">
         <img class="card-img-top" src="{{dvd.image}}" style="max-width:100%">
         <div class="card-block">
           <h4 class="card-title">{{dvd.title}}</h4>
           <p>
             <label>Category: </label>
             <span *ngFor="let cat of dvd.category" style="border: 1px solid #ccc; border-radius: 5px; margin: 5px">{{cat}} </span>
+            <button class="btn btn-primary" (click)="addToCart(dvd)">Add to Cart</button>
           </p>
         </div>
       </div>

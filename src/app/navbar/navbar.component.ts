@@ -19,4 +19,8 @@ export class NavbarComponent implements OnInit {
     this.dvdService.filterByCategory2(category);
   }
 
+  numOfDvdInCart() {
+    return this.dvdService.cart.length;
+  }
+
 }

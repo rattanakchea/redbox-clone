@@ -20,6 +20,10 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  addToCart(dvd) {
+    this.dvdService.addToCart(dvd);
+  }
+
   ngOnInit() {
   }
 

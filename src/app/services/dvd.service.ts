@@ -15,13 +15,28 @@ export class DvdService {
     data: Dvd[];
     copyData: Dvd[];
     selectedDvd: Dvd; //save the currently selected dvd
+    cart: Dvd[];
 
     constructor(private http: Http) {
         this.data = [];
         this.copyData = [];
+        this.cart = [];
         sampleData.forEach(data => {
             this.data.push(new Dvd(data));
             this.copyData.push(new Dvd(data));
+        })
+    }
+
+    addToCart(Dvd: Dvd) {
+        this.cart.push(Dvd);
+        console.log(this.cart);
+    }
+
+    removeFromCart(dvdId) {
+        //this.cart.push(Dvd);
+        //mutate cart array
+        _.remove(this.cart, (dvd) => {
+            return dvd.id == dvdId;
         })
     }
 

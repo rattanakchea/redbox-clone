@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { CartComponent } from './cart/cart.component';
+
 
 import { AdminComponent } from './admin/admin.component';
 import { DvdListComponent } from './admin/dvd-list/dvd-list.component';
@@ -19,15 +21,15 @@ import { DvdService } from './services/dvd.service';
 const routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'admin', component: AdminComponent }
+  { path: 'admin', component: AdminComponent },
+  { path: 'cart', component: CartComponent }
   //{ path: '**', redirectTo: 'user', pathMatch: 'full' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent, NavbarComponent, HomeComponent, AboutComponent,
-    AdminComponent,
-    DvdListComponent, AddDvdComponent
+    AdminComponent, DvdListComponent, AddDvdComponent, CartComponent
   ],
   imports: [
     BrowserModule,

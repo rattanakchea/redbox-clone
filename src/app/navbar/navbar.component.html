@@ -13,20 +13,20 @@
             <a class="nav-link" (click)="filter('action')">Action</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Horrow</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['admin']">Admin</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Cart</a>
+            <a class="nav-link" (click)="filter('drama')">Drama</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DVD & Blu-Ray</a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DVD & Blu-Ray</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="#">DVD</a>
               <a class="dropdown-item" href="#">Blu-ray action</a>
             </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['cart']">Cart {{numOfDvdInCart()>0 ? '('+numOfDvdInCart()+ ')' : ''}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['admin']">Admin</a>
           </li>
         </ul>
       </div>
