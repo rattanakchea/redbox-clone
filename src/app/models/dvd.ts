@@ -1,3 +1,9 @@
+import { generate } from 'shortid';
+
+import { generate as id }  from 'shortid';
+
+
+
 export interface iDvd {
     id: number;
     title: string;
@@ -40,7 +46,7 @@ export class Dvd {
     qty: number;
 
     constructor(obj: any) {
-        this.id = obj.id;
+        this.id = obj.id || id();
         this.title = obj.title || 'Default Titlte';
         this.synopsis = obj.description  || 'This movie is about'
         this.image = obj.image || 'http://placehold.it/150x100';

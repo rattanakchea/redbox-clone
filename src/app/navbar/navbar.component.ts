@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Dvd, DvdService } from '../services/dvd.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'navbar',
@@ -8,7 +9,7 @@ import { Dvd, DvdService } from '../services/dvd.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private dvdService: DvdService) { }
+  constructor(private dvdService: DvdService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -17,6 +18,7 @@ export class NavbarComponent implements OnInit {
     console.log('filter fromn nav bar');
 
     this.dvdService.filterByCategory2(category);
+    this.router.navigate(['/']);
   }
 
   numOfDvdInCart() {

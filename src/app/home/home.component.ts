@@ -11,9 +11,7 @@ export class HomeComponent implements OnInit {
   DvdCollection : Dvd[];
 
   constructor(private dvdService: DvdService) {
-
     this.DvdCollection = this.dvdService.getCopyData();
-
     this.dvdService.emitter.subscribe(data => {
       console.log('at home component', data);
       this.DvdCollection = data;
@@ -25,6 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
 }
